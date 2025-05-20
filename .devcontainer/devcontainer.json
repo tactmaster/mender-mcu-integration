@@ -1,5 +1,5 @@
 {
-  "name": "Zephyr Build Environment",
+  "name": "Zephyr",
   "build": {
     "dockerfile": "Dockerfile"
   },
