@@ -14,19 +14,13 @@ RUN apt-get update && apt-get install -y \
     wget \
     ca-certificates \
     build-essential \
+    git cmake ninja-build gperf \
+    ccache dfu-util device-tree-compiler wget \
+    python3-dev python3-pip python3-setuptools python3-tk python3-wheel xz-utils file \
+    make gcc gcc-multilib g++-multilib libsdl2-dev libmagic1 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Create a non-root user (VS Code requires this for dev containers)
-ARG USERNAME=vscode
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
-
-RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
-
-# Set user
-USER $USERNAME
 
 # Default workdir
 WORKDIR /workspace
